@@ -19,6 +19,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Set Execute Permissions
+      run: |
+        chmod +x ${{ github.action_path }}/fillbucket.sh
+      shell: bash
+
     - name: Print Permissions
       run: |
         ls -l ${{ github.action_path }}/fillbucket.sh
