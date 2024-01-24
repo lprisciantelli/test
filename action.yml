@@ -7,12 +7,15 @@ inputs:
   username:
     required: true
     default: ${{ github.actor }}
-  password:
+  access_token:
     required: true
   repository:
     required: true
     default: ${{ github.event.repository.name }}
   spacename:
+    required: true
+    default: ${{ github.actor }}
+  project_key:
     required: true
     default: ${{ github.actor }}
 
@@ -22,5 +25,5 @@ runs:
     - run: chmod +x ${{ github.action_path }}/fillbucket.sh
       shell: bash
       
-    - run: ${{ github.action_path }}/fillbucket.sh "${{ inputs.username }}" "${{ inputs.password }}" "${{ inputs.repository }}" "${{ inputs.spacename }}"
+    - run: ${{ github.action_path }}/fillbucket.sh "${{ inputs.username }}" "${{ inputs.access_token }}" "${{ inputs.repository }}" "${{ inputs.spacename }}" "${{ inputs.project_key }}"
       shell: bash
