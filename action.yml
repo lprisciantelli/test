@@ -19,16 +19,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Set Execute Permissions
-      run: |
-        chmod +x ${{ github.action_path }}/fillbucket.sh
-      shell: bash
-
-    - name: Print Permissions
-      run: |
-        ls -l ${{ github.action_path }}/fillbucket.sh
-      shell: bash
-
-    - name: Run Script
-      run: ${{ github.action_path }}/fillbucket.sh "${{ inputs.username }}" "${{ inputs.password }}" "${{ inputs.repository }}" "${{ inputs.spacename }}"
-      shell: bash
+    -  run: ${{ github.action_path }}/fillbucket.sh "${{ inputs.username }}" "${{ inputs.password }}" "${{ inputs.repository }}" "${{ inputs.spacename }}"
+    shell: bash
