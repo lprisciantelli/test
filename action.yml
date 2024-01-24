@@ -19,5 +19,8 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: chmod +x ${{ github.action_path }}/fillbucket.sh
+      shell: bash
+      
     - run: ${{ github.action_path }}/fillbucket.sh "${{ inputs.username }}" "${{ inputs.password }}" "${{ inputs.repository }}" "${{ inputs.spacename }}"
       shell: bash
